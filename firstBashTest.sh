@@ -23,5 +23,5 @@ case $resposta in
         echo "Me too."
         ;;
     *)
-        echo "Lê direitinho na próxima."
+        echo "Lê bem direitinho na próxima."
 esac
