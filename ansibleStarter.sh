@@ -15,14 +15,24 @@ createBaseStructure () {
 createRoleStructure () {
     mkdir -p provision/roles/$1/tasks/
     touch provision/roles/$1/tasks/main.yml
+    mkdir -p provision/roles/$1/vars/
+    touch provision/roles/$1/vars/main.yml
 }
 
-IFS='/' #Internal Field Separator
+processRoles () {
+    IFS='/' #Internal Field Separator
+    read -ra ADDR <<< "$1"
+    for index in "${ADDR[@]}"; do
+        createRoleStructure "$index"    
+    done
+}
 
-read -ra ADDR <<< "$roles"
+start () {
+    createBaseStructure
+    if [ ! -z "$1" ]
+    then
+        processRoles "$1"
+    fi
+}
 
-for index in "${ADDR[@]}"; do
-    createRoleStructure "$index"    
-done
-
-createBaseStructure
+start "$roles"
