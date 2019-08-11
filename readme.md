@@ -6,7 +6,7 @@ This is a repository for storing useful shell scripts that i use for some purpos
 
 No secrets here, just ./{scriptName} for starting it. If any script has a specific usage it will be described below:
 
-- ansibleStarter
+- ansibleStarter  _the development of this script has been moved to: [here](https://github.com/magalhaes-andre/ansible-starter)_
 
 #### Ansible Starter
 
